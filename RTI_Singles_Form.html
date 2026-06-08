@@ -5,8 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>ONT8 — RTI / Singles Entry</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;700&display=swap');
-
   :root {
     --bg:        #0d1117;
     --surface:   #161b22;
@@ -24,10 +22,9 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   html, body {
-    height: 100%;
     background: var(--bg);
     color: var(--text);
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
   }
 
@@ -35,23 +32,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 24px 16px 40px;
-    min-height: 100vh;
+    padding: 12px 12px 20px;
   }
 
-  /* ── Header ── */
-  .header {
-    width: 100%;
-    max-width: 480px;
-    margin-bottom: 28px;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
+  .header { width: 100%; max-width: 480px; margin-bottom: 10px; }
 
   .site-tag {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
+    font-family: Consolas, 'Courier New', monospace;
+    font-size: 10px;
     font-weight: 500;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -59,31 +47,29 @@
   }
 
   .title {
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 700;
     color: var(--text);
     line-height: 1.2;
+    margin-top: 2px;
   }
 
-  /* ── Shift badge ── */
   .shift-badge {
-    margin-top: 10px;
+    margin-top: 6px;
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 7px;
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    padding: 8px 12px;
-    font-family: 'DM Mono', monospace;
-    font-size: 12px;
+    padding: 5px 10px;
+    font-family: Consolas, 'Courier New', monospace;
+    font-size: 11px;
     color: var(--muted);
-    width: fit-content;
   }
 
   .shift-badge .dot {
-    width: 7px;
-    height: 7px;
+    width: 6px; height: 6px;
     border-radius: 50%;
     background: var(--accent-hi);
     flex-shrink: 0;
@@ -95,12 +81,8 @@
     50%       { opacity: 0.35; }
   }
 
-  .shift-badge strong {
-    color: var(--text);
-    font-weight: 500;
-  }
+  .shift-badge strong { color: var(--text); font-weight: 500; }
 
-  /* ── Card ── */
   .card {
     width: 100%;
     max-width: 480px;
@@ -110,57 +92,43 @@
     overflow: hidden;
   }
 
-  /* ── Field group ── */
   .field {
-    padding: 18px 20px;
+    padding: 12px 16px;
     border-bottom: 1px solid var(--border);
   }
   .field:last-child { border-bottom: none; }
 
   .field label {
     display: block;
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--label);
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
 
-  .field label .req {
-    color: var(--danger);
-    margin-left: 2px;
-  }
+  .field label .req { color: var(--danger); margin-left: 2px; }
 
-  /* ── Choice pills ── */
-  .pills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  .pill input[type="radio"] {
-    display: none;
-  }
+  .pills { display: flex; flex-wrap: wrap; gap: 6px; }
+  .pill input[type="radio"] { display: none; }
 
   .pill label {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px 18px;
+    padding: 8px 16px;
     background: var(--input-bg);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    font-family: 'DM Mono', monospace;
-    font-size: 13px;
+    font-family: Consolas, 'Courier New', monospace;
+    font-size: 12px;
     font-weight: 500;
     color: var(--muted);
     cursor: pointer;
     transition: all 0.15s ease;
-    letter-spacing: 0;
-    text-transform: none;
     margin-bottom: 0;
-    min-width: 60px;
+    min-width: 54px;
     user-select: none;
     -webkit-tap-highlight-color: transparent;
   }
@@ -171,55 +139,41 @@
     color: #fff;
   }
 
-  .pill label:active {
-    transform: scale(0.96);
-  }
+  .pill label:active { transform: scale(0.96); }
 
-  /* ── Text input ── */
   .text-input {
     width: 100%;
     background: var(--input-bg);
     border: 1px solid var(--border);
     border-radius: var(--radius);
     color: var(--text);
-    font-family: 'DM Mono', monospace;
-    font-size: 15px;
-    padding: 12px 14px;
+    font-family: Consolas, 'Courier New', monospace;
+    font-size: 14px;
+    padding: 9px 12px;
     outline: none;
     transition: border-color 0.15s;
     -webkit-appearance: none;
     appearance: none;
   }
 
-  .text-input:focus {
-    border-color: var(--accent-hi);
-  }
+  .text-input:focus { border-color: var(--accent-hi); }
+  .text-input::placeholder { color: var(--border); }
 
-  .text-input::placeholder {
-    color: var(--border);
-  }
-
-  /* number input — hide spinners */
   input[type="number"]::-webkit-inner-spin-button,
   input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; }
   input[type="number"] { -moz-appearance: textfield; }
 
-  /* ── Submit button ── */
-  .submit-wrap {
-    width: 100%;
-    max-width: 480px;
-    margin-top: 16px;
-  }
+  .submit-wrap { width: 100%; max-width: 480px; margin-top: 10px; }
 
   .btn-submit {
     width: 100%;
-    padding: 16px;
+    padding: 14px;
     background: var(--accent);
     border: none;
     border-radius: var(--radius);
     color: #fff;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 15px;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 14px;
     font-weight: 700;
     cursor: pointer;
     transition: background 0.15s, transform 0.1s;
@@ -235,15 +189,14 @@
     transform: none;
   }
 
-  /* ── Status messages ── */
   .status {
     width: 100%;
     max-width: 480px;
-    margin-top: 12px;
-    padding: 14px 16px;
+    margin-top: 8px;
+    padding: 12px 14px;
     border-radius: var(--radius);
-    font-size: 13px;
-    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    font-family: Consolas, 'Courier New', monospace;
     display: none;
     line-height: 1.5;
   }
@@ -262,16 +215,14 @@
     display: block;
   }
 
-  /* ── Validation highlight ── */
   .field.invalid .text-input { border-color: var(--danger); }
   .field.invalid .pills .pill label { border-color: var(--danger); }
 
-  /* ── Footer ── */
   .footer {
-    margin-top: 32px;
-    font-size: 11px;
+    margin-top: 10px;
+    font-size: 10px;
     color: var(--muted);
-    font-family: 'DM Mono', monospace;
+    font-family: Consolas, 'Courier New', monospace;
     letter-spacing: 0.05em;
     text-align: center;
   }
@@ -284,13 +235,11 @@
   <h1 class="title">RTI / Singles Entry</h1>
   <div class="shift-badge">
     <span class="dot"></span>
-    <span id="shift-display">Computing shift…</span>
+    <span id="shift-display">Loading…</span>
   </div>
 </div>
 
 <div class="card">
-
-  <!-- Quarter -->
   <div class="field" id="field-quarter">
     <label>Quarter <span class="req">*</span></label>
     <div class="pills">
@@ -301,7 +250,6 @@
     </div>
   </div>
 
-  <!-- Pole Location -->
   <div class="field" id="field-pole">
     <label>Pole Location <span class="req">*</span></label>
     <input class="text-input" type="text" id="pole-location"
@@ -309,7 +257,6 @@
            autocomplete="off" autocorrect="off" autocapitalize="characters" spellcheck="false">
   </div>
 
-  <!-- Category -->
   <div class="field" id="field-category">
     <label>Category <span class="req">*</span></label>
     <div class="pills">
@@ -319,13 +266,11 @@
     </div>
   </div>
 
-  <!-- Pallet Count -->
   <div class="field" id="field-count">
     <label>Pallet Count <span class="req">*</span></label>
     <input class="text-input" type="number" id="pallet-count"
            placeholder="0" min="0" inputmode="numeric">
   </div>
-
 </div>
 
 <div class="submit-wrap">
@@ -333,66 +278,56 @@
 </div>
 
 <div class="status" id="status-msg"></div>
-
 <div class="footer">Submissions go directly to the RTI Singles list</div>
 
 <script>
-// ── Config ───────────────────────────────────────────────────
-const SP_SITE = 'https://amazon.sharepoint.com/sites/ONT8Quality';
-const SP_LIST = 'RTI Singles';
+// ── Shift detection — UTC offset approach, no toLocaleString ─────────────────
+// Pacific Standard Time = UTC-8, Pacific Daylight Time = UTC-7
+// DST: second Sunday in March → first Sunday in November
+function isPDT(now) {
+  const y = now.getUTCFullYear();
+  // Second Sunday in March
+  const mar = new Date(Date.UTC(y, 2, 1));
+  const dstStart = new Date(Date.UTC(y, 2, 8 + (7 - mar.getUTCDay()) % 7));
+  dstStart.setUTCHours(10); // 02:00 PST = 10:00 UTC
+  // First Sunday in November
+  const nov = new Date(Date.UTC(y, 10, 1));
+  const dstEnd = new Date(Date.UTC(y, 10, (7 - nov.getUTCDay()) % 7 + 1));
+  dstEnd.setUTCHours(9); // 02:00 PDT = 09:00 UTC
+  return now >= dstStart && now < dstEnd;
+}
 
-// ── Shift date / key logic (mirrors qrPilesGetShiftDate) ─────
-// Night shift: 17:00 PST → 03:30 PST next day
-// If current Pacific hour < 17 we're still on last night's shift date
-function getPacificNow() {
-  const now = new Date();
-  const laStr = now.toLocaleString('en-US', {
-    timeZone: 'America/Los_Angeles',
-    hour12: false,
-    year: 'numeric', month: '2-digit', day: '2-digit',
-    hour: '2-digit', minute: '2-digit'
-  });
-  const m = laStr.match(/(\d{2})\/(\d{2})\/(\d{4}),?\s*(\d{2}):(\d{2})/);
-  if (!m) return { dateStr: now.toISOString().slice(0, 10), hour: 12, minute: 0 };
-  let hour = parseInt(m[4]); if (hour === 24) hour = 0;
-  return {
-    dateStr: `${m[3]}-${m[1]}-${m[2]}`,
-    hour,
-    minute: parseInt(m[5])
-  };
+function getPacific(now) {
+  const offsetHours = isPDT(now) ? -7 : -8;
+  const pac = new Date(now.getTime() + offsetHours * 3600000);
+  const yyyy = pac.getUTCFullYear();
+  const mm   = String(pac.getUTCMonth() + 1).padStart(2, '0');
+  const dd   = String(pac.getUTCDate()).padStart(2, '0');
+  return { dateStr: `${yyyy}-${mm}-${dd}`, hour: pac.getUTCHours() };
 }
 
 function computeShift() {
-  const { dateStr, hour } = getPacificNow();
-  // Before 06:00 = still on last night's shift
-  // 06:00–16:59 = day shift (today)
-  // 17:00–23:59 = night shift (tonight)
-  let shiftKey, shiftDate, label;
-
+  const now = new Date();
+  const { dateStr, hour } = getPacific(now);
+  let shiftKey, shiftDate;
   if (hour >= 17) {
-    shiftKey  = 'Night';
-    shiftDate = dateStr;
-    label     = `Night  ·  ${dateStr}`;
+    shiftKey = 'Night'; shiftDate = dateStr;
   } else if (hour >= 6) {
-    shiftKey  = 'Day';
-    shiftDate = dateStr;
-    label     = `Day  ·  ${dateStr}`;
+    shiftKey = 'Day'; shiftDate = dateStr;
   } else {
-    // post-midnight → last night's shift
-    shiftKey  = 'Night';
-    const d   = new Date(dateStr + 'T12:00:00Z');
-    d.setUTCDate(d.getUTCDate() - 1);
-    shiftDate = d.toISOString().slice(0, 10);
-    label     = `Night  ·  ${shiftDate}`;
+    // post-midnight — still on last night's shift
+    shiftKey = 'Night';
+    const d = new Date(now.getTime() - 86400000);
+    const prev = getPacific(d);
+    shiftDate = prev.dateStr;
   }
-  return { shiftKey, shiftDate, label };
+  return { shiftKey, shiftDate, label: `${shiftKey}  ·  ${shiftDate}` };
 }
 
 const shift = computeShift();
-document.getElementById('shift-display').innerHTML =
-  `<strong>${shift.label}</strong>`;
+document.getElementById('shift-display').innerHTML = `<strong>${shift.label}</strong>`;
 
-// ── Validation ───────────────────────────────────────────────
+// ── Validation ────────────────────────────────────────────────────────────────
 function getVal(name) {
   const el = document.querySelector(`input[name="${name}"]:checked`);
   return el ? el.value : null;
@@ -414,25 +349,27 @@ function validate() {
   return ok ? fields : null;
 }
 
-// ── SharePoint request digest ────────────────────────────────
+// ── SharePoint submit ─────────────────────────────────────────────────────────
+const SP_SITE = 'https://amazon.sharepoint.com/sites/ONT8Quality';
+const SP_LIST = 'RTI Singles';
+
 async function getDigest() {
   const r = await fetch(`${SP_SITE}/_api/contextinfo`, {
     method: 'POST',
-    headers: { 'Accept': 'application/json;odata=verbose',
-               'Content-Type': 'application/json;odata=verbose' },
+    headers: {
+      'Accept': 'application/json;odata=verbose',
+      'Content-Type': 'application/json;odata=verbose'
+    },
     credentials: 'include'
   });
+  if (!r.ok) throw new Error(`Digest fetch failed: HTTP ${r.status}`);
   const j = await r.json();
   return j?.d?.GetContextWebInformation?.FormDigestValue;
 }
 
-// ── Submit ───────────────────────────────────────────────────
 async function submitEntry() {
   const fields = validate();
-  if (!fields) {
-    showStatus('error', 'Please fill in all required fields.');
-    return;
-  }
+  if (!fields) { showStatus('error', 'Please fill in all required fields.'); return; }
 
   const btn = document.getElementById('btn-submit');
   btn.disabled = true;
@@ -441,7 +378,7 @@ async function submitEntry() {
 
   try {
     const digest = await getDigest();
-    if (!digest) throw new Error('Could not get request digest — are you signed into SharePoint?');
+    if (!digest) throw new Error('Could not authenticate — are you signed into SharePoint?');
 
     const payload = {
       __metadata:   { type: 'SP.Data.RTI_x0020_SinglesListItem' },
@@ -469,10 +406,9 @@ async function submitEntry() {
 
     if (!res.ok) {
       const errText = await res.text();
-      throw new Error(`HTTP ${res.status} — ${errText.slice(0, 200)}`);
+      throw new Error(`HTTP ${res.status} — ${errText.slice(0, 300)}`);
     }
 
-    // Success — reset form, keep shift badge
     showStatus('success',
       `✓ Submitted: ${fields['field-quarter']} · ${fields['field-pole']} · ` +
       `${fields['field-category']} · ${fields['field-count']} pallets`
@@ -481,7 +417,7 @@ async function submitEntry() {
 
   } catch(e) {
     console.error('[RTI Form]', e);
-    showStatus('error', `✗ Submission failed: ${e.message}`);
+    showStatus('error', `✗ ${e.message}`);
   } finally {
     btn.disabled = false;
     btn.textContent = 'Submit Entry';
@@ -510,18 +446,13 @@ function hideStatus() {
 
 document.getElementById('btn-submit').addEventListener('click', submitEntry);
 
-// Clear invalid state on interaction
 document.querySelectorAll('input[type="radio"]').forEach(r => {
-  r.addEventListener('change', () => {
-    const field = r.closest('.field');
-    if (field) field.classList.remove('invalid');
-  });
+  r.addEventListener('change', () => r.closest('.field')?.classList.remove('invalid'));
 });
 ['pole-location', 'pallet-count'].forEach(id => {
   document.getElementById(id).addEventListener('input', () => {
-    document.getElementById(
-      id === 'pole-location' ? 'field-pole' : 'field-count'
-    ).classList.remove('invalid');
+    document.getElementById(id === 'pole-location' ? 'field-pole' : 'field-count')
+      .classList.remove('invalid');
   });
 });
 </script>
